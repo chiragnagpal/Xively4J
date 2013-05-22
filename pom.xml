@@ -2,6 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
 	<groupId>com.xively.client</groupId>
 	<artifactId>xively-java-client</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
@@ -21,7 +27,22 @@
   <scm>
     <url>https://github.com/xively/Xively4J</url>
     <connection>scm:git:git://github.com/xively/Xively4J.git</connection>
+    <developerConnection>scm:git:git@github.com:xively/Xively4J.git</developerConnection>
   </scm>
+
+  <developers>
+    <developer>
+      <id>s0pau</id>
+      <name>Stephanie Pau</name>
+    </developer>
+    <developer>
+      <id>smulube</id>
+      <name>Sam Mulube</name>
+      <email>sam.mulube@xively.com</email>
+      <organization>Xively Ltd.</organization>
+      <organizationUrl>https://xively.com</organizationUrl>
+    </developer>
+  </developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,6 +95,36 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+  <profiles>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 	<build>
 		<plugins>
