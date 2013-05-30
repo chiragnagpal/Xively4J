@@ -1,4 +1,6 @@
-# Xively wrapper for Java (Xively4J)
+# Xively Java library (BETA)
+
+Please note that this library is still in beta.
 
 [![Build Status](https://travis-ci.org/xively/Xively4J.png?branch=master)](https://travis-ci.org/xively/Xively4J)
 
