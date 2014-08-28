@@ -36,7 +36,7 @@ HttpClientBuilder.getInstance().setConnectionTimeout(5000);
 The _DomainObject_ is the model interface for all objects that can be directly accessed/modified via Xively RESTful API.
 Each model has a equals, hashcode and deepEquals defined to streamline downstream processing.
 
-All CRUD operations on _DomaimObject(s)_ are provided by `XivelyService`.
+All CRUD operations on _DomainObject(s)_ are provided by `XivelyService`.
 
 It is designed to be fluent, here are some examples:
 
